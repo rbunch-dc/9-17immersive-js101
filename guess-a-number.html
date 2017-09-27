@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	
+
+// Generate a random number between 1-10.
+var rand = Math.ceil(Math.random() * 10);
+console.log(rand);
+
+// Make a prompt box that asks the user for a number between 1-10.
+var userNumber = prompt("Please guess a number between 1 and 10!");
+
+var difference = Math.abs(userNumber - rand);
+// console.log(difference)
+
+// Lastly, make sure the user entered a number
+if(isNaN(userNumber)){
+	alert("You must enter a number!");
+	// If they match, congrat the user.
+}else if(rand == userNumber){
+	alert("You got it!");
+	// - if they are wrong, but within 2 of the number, tell them they were close and what the number was.
+}else if(difference <= 2){
+	alert(`You were within 2! The number was ${rand}`)
+}else{
+	// If they dont, console the user and tell them what it was
+	// alert("Sorry, that wasn't it!");
+	alert("Haha, nice try. You're not even close.")
+}
+
+</script>

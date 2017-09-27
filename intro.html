@@ -35,22 +35,132 @@
 
 // In Python I used snake_case.
 // In JS I use camelCase.
-var fullName = "Robert Bunch";
-// var public string fullName = "Robert Bunch" C# or Java
-console.log(fullName);
-fullName = "Hayes Capers";
-console.log(fullName);
-// Just like python, you can escape anything wiht a \
-fullName = "Hayes \"Bender\" Capers";
-fullName = 'Hayes "Bender" Capers';
-var firstName = "Hayes";
-var nickName = "Bender";
-var lastName = "Capers"
-// Concatnate strings with +
-fullName = firstName + " " + nickName +  " " + lastName;
-window.console.log(fullName)
-// template literals (ES6)
-fullName = `${firstName} "${nickName}" ${lastName}`
-// fullName = '%s "%s" %s' % (a,b,c)
-console.log(fullName);
+// var fullName = "Robert Bunch";
+// // var public string fullName = "Robert Bunch" C# or Java
+// console.log(fullName);
+// fullName = "Hayes Capers";
+// console.log(fullName);
+// // Just like python, you can escape anything wiht a \
+// fullName = "Hayes \"Bender\" Capers";
+// fullName = 'Hayes "Bender" Capers';
+// var firstName = "Hayes";
+// var nickName = "Bender";
+// var lastName = "Capers"
+// // Concatnate strings with +
+// fullName = firstName + " " + nickName +  " " + lastName;
+// window.console.log(fullName)
+// // template literals (ES6)
+// fullName = `${firstName} "${nickName}" ${lastName}`
+// // fullName = '%s "%s" %s' % (a,b,c)
+// console.log(fullName);
+
+// NUMBERS
+// var theYear = 2017; //Integer
+// var pi = 3.14 //Float
+// // In JavaScript, you can get the datatype, by running the typeof method
+// console.log(typeof(theYear));
+// console.log(typeof(pi));
+// var theYearAsAString = "2017"
+// console.log(typeof(theYearAsAString)); //string
+
+// // Math just like Python
+// var twoYearsAgo = theYear - 2;
+// var twoYearsFromNow = theYear + 2
+// // A STRING ALWAYS WINS with a +
+// console.log(theYearAsAString + 2);
+// console.log(.2+.1); //ANy guesses?
+
+// Booleans
+// just like python, 1 or 0, off or on, true or false
+// True = true
+var theTruth = true;
+console.log(typeof(theTruth));
+var theLie = false;
+
+// MATH
+// +
+// -
+// *
+// /
+// %
+
+var amIEven = 11 % 2;
+console.log(amIEven);
+
+// Incramenting...
+var i = 1;
+// c --> c++
+i++; // i += 1;
+// THis is postfixing
+i--; // i -= 1;
+// i += 10;
+// console.log(i);
+// console.log(i++);
+// // Prefixing
+// console.log(i);
+// console.log(++i);
+
+// Order of operations is the same as Python.
+// * and / always come before + and -
+// always left to right
+// () overrides anything
+
+// 2 + 3 * 4 = 14 //not 20
+// 2 + 4 / 2 = 4 //not 6
+// (2 + 3) * 4 = 20
+
+// Prompt method. 
+// Belongs to the window (just alert)
+// Take 2 arguments, the first is the message to display, the second (optional) is teh default response
+// var getUserName = prompt("What is your name?", "Hayes");
+// Prompts are obnoxsiou. Don't use them. Or if you use them
+// make sure to tell them I said not to use them. We will use forms/AJAX
+
+// // CONDITIONALS/
+// var classSize = 19.0; //number
+// var userResponse = prompt("How big is your class?");
+// // = is an assignment of the thing on the right to the thing on the left
+// // == is a comparison operator of the thing on the right to the thing on the left
+// // === is the same as == but will also check for data type equality
+// // if(userResponse == classSize){
+// // 	console.log("You are in the September class!");
+// // }
+// // var userResponseAsANumber = Number(userResponse)
+// if(userResponse === classSize){
+// 	alert("You are in the September class!");
+// }else if(userResponse !== classSize){
+// 	alert("You are not in the September class!");
+// }else{
+// 	//comment - this would make python turn into the hulk
+// }
+
+// console.log(Number("sedfsdfsgfsdf"));
+
+// import Math ... not neccessary!
+// var round = Math.round(10.2);
+// console.log(round);
+// var up = Math.ceil(10.00001); //11
+// console.log(up)
+// var down = Math.floor(10.99999999); //10
+// parseInt ... same as Math.floor() or Number()
+
+// 0.00000000000000001
+// floor = 0
+// ceil = 1
+// parseInt = 0
+// round = 0
+
+// 0.99999999999999
+// floor = 0
+// ceil = 1
+// parseInt = 0
+// round = 1
+
+var rand = Math.random()
+console.log(rand);
+var betweenOneAndTen = Math.ceil(rand * 10)
+console.log(betweenOneAndTen)
+
+
+
 </script>
