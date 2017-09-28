@@ -1,0 +1,135 @@
+
+<script type="text/javascript">
+// An array is []
+// this is an empty array!
+var students = [];
+
+// An object is {}
+// this is an empty object!
+var student = {}
+
+// Just like dictionaries, objects are a combination of properties and values (keys and values)
+// syntax is:
+// {
+// 	property: value
+// }
+
+// student['name'] = "Hayes" //python way
+student.name = "Hayes";
+console.log(student);
+
+// Unlike Pyhton, the property doesn't have to have "" around
+student = {
+	name: "Hayes"
+}
+
+student.age = 28;
+console.log(student);
+
+// Can define multiple properties at definition. Separate with a ,
+var student2 = {
+	name: "Jennifer",
+	profession: "Student",
+	language: "JavaScript"
+}
+
+console.log(student2.language);
+
+var student3 = {
+	name: "Akil",
+	friends: [
+		"Amir",
+		"Binh",
+		"Jong"
+	]
+}
+
+var student4 = {
+	name: "Valerie",
+	friends: [],
+	sayHello: function(name){
+		var express = "${name}"
+		console.log(`Hello, ${name}`);
+		console.log(`Hello, ${express}`)
+		console.log(`Hello, \${name}`)
+		console.log(`Hello, \\\${name}`)
+		console.log(`Hello, \\\\\${name}`)
+		console.log(`Hello, \\\\\$${name}`)
+		// print "Hello, %s" % ("Scott")
+		// print "Hello, " + "Scott"
+		console.log("Hello, " + name + "!")
+		return "I ran";
+	},
+	addFriend: function(newFriendName){
+		this.friends.push(newFriendName)
+	}
+}
+
+console.log(student4.name);
+student4.sayHello("Eddie");
+// a method without () is simply "code". In order to RUN the code, oyu need ()
+// student4.sayHello;
+console.log(student4.sayHello);
+console.log(student4.sayHello());
+console.log(student4)
+
+// BRACKET NOTATION
+// if you need a variable property, you MUST use bracket notation.
+var userProp = prompt("What property would you like",name);
+// console.log(student4['name'])
+// this will look for the property "userProp"
+// console.log(student4.userProp) == console.log(student4['userProp'])
+// this will convert the variable userProp into the property name
+console.log(student4[userProp])
+
+students = [
+	student,
+	student2,
+	student3,
+	student4
+];
+
+console.log(students[2].name);
+console.log(students[2].friends[2]);
+console.log(students[1].language);
+// If you reference a property that does not exist
+// you will just get "undefined". In Python you'd get a reference error
+// cannot get property X of undefined
+console.log(students[2].language);
+students[3].sayHello("Michael");
+// students[3].friends(); //will error
+
+console.log(students.name)
+for(let i = 0; i < students.length; i++){
+	console.log(students[i].name);
+}
+
+console.log(students[23423345435324]);
+
+console.log(students[3].friends[0]);
+if(students[2].friends != undefined){
+	console.log(students[2].friends[0]);
+}
+
+// console.log(students[1].friends[0]);
+// console.log(undefined[0]);
+console.log(students[1].sayHello);
+// console.log(undefined)
+students[1].sayHello = function(){
+	console.log("Here is a new function on the go!")
+}
+console.log(students[1].sayHello());
+// undefined() BAD!!
+// console.log(typeof(undefined));
+
+for(let i = 0; i<students.length; i++){
+	// if(students[i].langauge == undefined){
+		students[i].langauge = "Node"
+	// }
+}
+
+console.log(students);
+
+student3.name = student4.name;
+
+</script>

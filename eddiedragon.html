@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fight the horrible dragon!</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		var heroHealth = 20;
+		var dragonHealth = 20;
+		var braveAttack = false;
+		var dragonHurt;
+		var heroHurt;
+
+		function rollDice(){
+			// console.log("User pressed the roll button")
+			// get a random number between 1 and 6
+			var rand1 = Math.ceil(Math.random() * 6);
+			var rand2 = Math.ceil(Math.random() * 6);
+
+			// The dice images are dN.gif. We have 2 random numbers for that N.
+			// Use JS to update the DOM, so that the image files that show will
+			// be the same number as the random numbers above
+			var dice = document.getElementById('dice');
+			console.log(dice);
+			var image1 = dice.children[0];
+			var image2 = dice.children[1];
+			image1.src = `dragon-assets/d${rand1}.gif`;
+			image2.src = `dragon-assets/d${rand2}.gif`;
+
+			var distractedDragon = Math.random();
+
+
+			if(heroHealth > 0 && dragonHealth > 0){
+				if(rand1 + rand2 > 8){
+					dragonHealth = dragonHealth - dragonHurt;
+					document.getElementById('dragon').children[0].src = "https://st.depositphotos.com/1695366/1395/v/950/depositphotos_13951179-stock-illustration-cartoon-dragon-cratches.jpg";
+					document.getElementById('dragon').children[0].style.height = "500px";
+					document.getElementById('dragon').children[0].style.width = "600px";
+					document.getElementById('message').innerHTML = `You have hurt the dragon! It's remaining health is: ${dragonHealth}`;
+				}else if(distractedDragon > .8){
+					document.getElementById('dragon').children[0].src = "http://cdn5.coloringcrew.com/coloring-book/painted/201147/c385a9122227cb25f7c6a5488ce6f602.png";
+					document.getElementById('message').innerHTML = "The dragon has been distracted by your shiny armor! You have been spared!";
+				}else{
+					heroHealth = heroHealth - heroHurt;
+					document.getElementById('dragon').children[0].src = "https://cdn.vox-cdn.com/uploads/chorus_asset/file/4098988/BURN.0.jpg";
+					document.getElementById('dragon').children[0].style.height = "500px";
+					document.getElementById('dragon').children[0].style.width = "700px";
+					document.getElementById('message').innerHTML = `You have been burned by the dragon! Your remaining health is: ${heroHealth}`;
+				}
+			}
+			if(heroHealth <= 0){
+				document.getElementById('dragon').children[0].src = "http://www.myfolsom.com/wp-content/uploads/2016/11/burned-turkey.jpg";
+				document.getElementById('dragon').children[0].style.height = "500px";
+				document.getElementById('dragon').children[0].style.width = "700px";
+				document.getElementById('message').innerHTML = "You have been killed by the dragon!";
+				console.log(heroHealth);
+			}else if(dragonHealth <= 0){
+				document.getElementById('dragon').children[0].src = "http://iordanou.org/wp-content/uploads/2015/04/hero.jpg";
+				document.getElementById('dragon').children[0].style.height = "500px";
+				document.getElementById('dragon').children[0].style.width = "700px";
+				document.getElementById('message').innerHTML = "You have killed the dragon!";
+				console.log(dragonHealth);
+			}
+		}
+		function flee(){
+			document.getElementById('dragon').children[0].src = "http://www.xyz.net.au/wp-content/uploads/2016/01/3087349881_87a1ff25ce_Cowardly-lion.jpg";
+			document.getElementById('dragon').children[0].style.height = "500px";
+			document.getElementById('dragon').children[0].style.width = "700px";
+			document.getElementById('message').innerHTML = "<h1>Run away, coward!</h1>";
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<div id="game-wrapper">
+		<div id="dragon">
+			<img src="./dragon-assets/dragon.png" />	
+		</div>
+		<div id="message">
+			You have encountered the great and terrible green dragon. Roll to fight!
+			You must roll an 8 or higher to defeat it.
+		</div>
+		<div id="dice">
+			<img src="./dragon-assets/d1.gif" />
+			<img src="./dragon-assets/d1.gif" />
+		</div>
+		<div>
+			<div id="distracted-dragon">
+			</div>
+			<div id="roll">
+				<button onclick="dragonHurt = 2; heroHurt = 2; rollDice();">Fight!</button>
+			</div>
+			<div id="flee">
+				<button onclick="flee();">Flee!</button>
+			</div>
+			<div id="brave-attack">
+				<button onclick="dragonHurt = 4; heroHurt = 4; rollDice();">Attack Bravely!</button>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
