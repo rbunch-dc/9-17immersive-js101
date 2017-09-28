@@ -28,8 +28,14 @@ function Ball(x,y){
 	this.x = x;
 	this.y = y;
 	this.sr = 0;
+	this.xDirection = 1;
+	this.yDirection = 1;
 	// ending radian
 	this.er = Math.PI * 2;
+	this.randX = Math.ceil(Math.random() * 15);
+	console.log(this.randX)
+	this.randY = Math.ceil(Math.random() * 15);
+	console.log(this.randY)
 	this.drawBall = this.drawBall.bind(this);
 	this.updateBallPosition = this.updateBallPosition.bind(this);
 }
@@ -45,8 +51,24 @@ Ball.prototype.updateBallPosition = function(){
 	context.clearRect(0,0,500,500);
 	// console.log(this);
 	this.drawBall()
-	this.x += 5;
-	this.y += 5;
+	if(this.x >= 500 - this.radius){
+		this.xDirection = -this.xDirection;
+	}
+	if(this.x <= 0 + this.radius){
+		this.xDirection = -this.xDirection;
+	}
+
+	if(this.y >= 500 - this.radius){
+		this.yDirection = -this.yDirection;
+	}	
+	if(this.y <= 0 + this.radius){
+		this.yDirection = -this.yDirection;
+	}	
+
+	// var randX = Math.ceil(Math.random() * 15)
+	// var randY = Math.ceil(Math.random() * 15)
+	this.x += this.randX * this.xDirection;
+	this.y += this.randY * this.yDirection;
 	// console.log(this.x)
 }
 
@@ -55,6 +77,9 @@ theBall = new Ball(100,100);
 console.log(theBall);
 var ball_interval = setInterval(theBall.updateBallPosition,50);
 
+canvas.addEventListener("click", function(event){
+	console.log(event);
+})
 
 // var centerX = 200;
 // var centerY = 200;
