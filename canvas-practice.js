@@ -45,6 +45,7 @@ Ball.prototype.drawBall = function(){
 	context.beginPath();
 	context.arc(this.x,this.y,this.radius,this.sr,this.er);
 	// context.closePath();
+	context.fillStyle = "#0044ff";
 	context.fill();
 }
 Ball.prototype.updateBallPosition = function(){
@@ -79,7 +80,8 @@ var ball_interval = setInterval(theBall.updateBallPosition,50);
 
 canvas.addEventListener("click", function(event){
 	console.log(event);
-})
+	// newBall = new Ball9...
+});
 
 // var centerX = 200;
 // var centerY = 200;

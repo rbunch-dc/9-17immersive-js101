@@ -1,0 +1,110 @@
+<script type="text/javascript">
+	
+	// Scope
+	// - Determines what can see a variable.
+	// - GLOBAL
+	// 	- If everyone can see it, it's global.
+	// 	- If it belongs to window, or is defined outside of all functions inside of a script tag, it is global. And everyone can see and change it anytime they want to.
+	// 	- In Python, globals are variables all the way to the left
+	// - LOCAL
+	// 	- varying degress
+	// 	- Local variables occur INSIDE of functions and are visible and changeable only to that function and child functions
+
+	// This is a global variable. It belongs to ... WINDOW!!
+	// var iAmAGlobal = 1;
+	// var iAmAlsoAGlobal = 10;
+	// console.log(iAmAGlobal);
+	// console.log(window.iAmAGlobal);
+
+	function checkScope(){
+		// in spite of the horrible name, this is NOT a global variable. It is not part of teh window. NOBODY outside of this function can see or use or change it.
+		var iAmAGlobal = 2;
+		console.log(iAmAGlobal); // 2, local
+		console.log(window.iAmAGlobal); //1, global
+		var iAmALocal = 3; // 3, local
+		console.log(iAmALocal);
+
+		// DONT, unless oyu have a very good reason to, EVER name a varibale inside a function that you ahve globally. It WILL BE CONFUSING.
+		// There is no local (inside this funciton) variable called iAmAlsoAGlobal, so it will look UP... to the parent.
+		// var iAmAlsoAGlobal = 11
+		console.log(iAmAlsoAGlobal);
+
+	}
+	// Call checkScope
+	// console.log(window.iAmALocal);
+	// checkScope()
+	// var iAmALocal;
+	// console.log(iAmALocal);
+	// console.log(window.innerHeight)
+	// console.log(window.iAmALocal);
+
+	var a = 1;
+
+	// function child(){
+		// REMEMBER, functions are regular objects (1st order objects) in JavaSCript. Which means they can be assigned, delcared, etc. just like anythign else.
+		// They are global and local just like any other var
+	var child = function(){
+		var b = "Test";
+		// console.log(b);
+		// function child(){
+		console.log(a);
+		a++;
+		console.log(a)
+		for(i = 0; i < 10; i++){
+			a++;
+		}
+		var grandChild = function(){
+			console.log("I am a grandchild! I can change my grandparents stuff");
+				a++;
+
+		}
+		grandChild();
+	}
+
+	function child2(){
+		a++;
+	}
+
+	// child();
+	// child();	
+	// child2();
+	// console.log(a);
+	// // console.log(b);
+	// // grandChild();
+	// console.log(a);
+
+
+	// Hoisting
+	// Anytime you a have a function, Javascript will take any var and put it at the top, whether you want it to or not.
+	
+	var q = 1;
+	function p(){
+		// var q
+		console.log(q);
+		var q = 2;
+		// Javascript sees var q = 2 as this:
+		// var q; up top
+		// q = 2
+		// var q = 2;
+		console.log(q);
+	}
+	p();
+
+	// JavaSCript runs from left to right, top to bottom.
+	// If it sees a function on run, it doesn't run teh function, it does register it as a variable/function. It will hoist all variables inside the function to the top.
+
+	// Closures
+
+j();
+function j(){
+	console.log("Usually you have to wait 9 months...")
+}
+
+function congress(){
+
+}
+
+congress();
+
+</script>
+
